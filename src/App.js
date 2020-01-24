@@ -50,29 +50,32 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="total">
         <h1>Wishes:</h1>
-        <ul>
-          {this.state.wishes.map(wish => (
-            <li>
-              {wish}
-              <button value={wish} onClick={() => this.deleteWish(wish)}>
-                Delete
-              </button>
+        <div className="list">
+          <ul>
+            {this.state.wishes.map(wish => (
+              <li>
+                {wish}
+                <button value={wish} onClick={() => this.deleteWish(wish)}>
+                  Delete
+                </button>
 
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="addedWish"
-              />
-              <button onClick={() => this.editWish(wish)}>Edit</button>
-            </li>
-          ))}
-        </ul>
-
-        <label>Add Wish</label>
-        <input type="text" onChange={this.handleChange} name="addedWish" />
-        <button onClick={this.addWish}>Add</button>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="addedWish"
+                />
+                <button onClick={() => this.editWish(wish)}>Edit</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="add">
+          <label>Add Wish</label>
+          <input type="text" onChange={this.handleChange} name="addedWish" />
+          <button onClick={this.addWish}>Add</button>
+        </div>
       </div>
     );
   }
